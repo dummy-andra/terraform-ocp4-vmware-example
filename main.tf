@@ -34,7 +34,7 @@ locals {
 }
 
 module "support_infrastructure" {
-  source = "github.com/ncolon/terraform-ocp4-supportinfra-vmware"
+  source = "github.com/ncolon/terraform-ocp4-supportinfra-vmware?ref=v1.0"
 
   # vsphere information
   vsphere_server           = "${var.vsphere_server}"
@@ -83,7 +83,7 @@ module "support_infrastructure" {
 }
 
 module "external_lb" {
-  source = "github.com/ncolon/terraform-ocp4-lb-haproxy-vmware"
+  source = "github.com/ncolon/terraform-ocp4-lb-haproxy-vmware?ref=v1.0"
 
   vsphere_server               = "${var.vsphere_server}"
   vsphere_allow_unverified_ssl = "${var.vsphere_allow_unverified_ssl}"
@@ -133,7 +133,7 @@ module "external_lb" {
 }
 
 module "internal_lb" {
-  source = "github.com/ncolon/terraform-ocp4-lb-haproxy-vmware"
+  source = "github.com/ncolon/terraform-ocp4-lb-haproxy-vmware?ref=v1.0"
 
   vsphere_server               = "${var.vsphere_server}"
   vsphere_allow_unverified_ssl = "${var.vsphere_allow_unverified_ssl}"
@@ -216,7 +216,7 @@ module "rhnregister" {
 }
 
 module "dnsregister" {
-  source = "github.com/ncolon/terraform-ocp4-dnsregister"
+  source = "github.com/ncolon/terraform-ocp4-dnsregister?ref=v1.0"
 
   dependson = [
     "${module.support_infrastructure.module_completed}",
@@ -256,7 +256,7 @@ module "dnsregister" {
 }
 
 module "openshift" {
-  source = "github.com/ncolon/terraform-ocp4-deploy-vmware"
+  source = "github.com/ncolon/terraform-ocp4-deploy-vmware?ref=v1.0"
 
   dependson = [
     "${module.support_infrastructure.module_completed}",
