@@ -4,7 +4,7 @@ Terraform to provision Openshift 4.x in VMware VMs using User Provided Infrastru
 In this example we provisioned Openshift 4.x in VMware using modular approach.
 Two load balancers are provisioned using the [HAProxy Load Balancer](https://github.com/ncolon/terraform-ocp4-lb-haproxy-vmware) module
 
-Supporting Infrastructure (Bastion, DNS Server) is privisioned using the [VMWare OCP4 Supporting Infrastructure](https://github.com/ncolon/terraform-ocp4-supportinfra-vmware) for internal cluster name resolution, and records are created using the [DDNS update](https://github.com/ncolon/terraform-ocp4-dnsregister) module.  
+Supporting Infrastructure (Bastion, DNS Server) is privisioned using the [VMWare OCP4 Supporting Infrastructure](https://github.com/ncolon/terraform-ocp4-supportinfra-vmware) for internal cluster name resolution, and records are created using the [DNS update](https://github.com/ncolon/terraform-ocp4-dnsregister) module.  
 
 In non-PoC and non-test scenarios, these two modules may be swapped out for manual or automated procedures that configure an external load balancer or DNS server, respectively.  Specifically, DNS update may be swapped out for [DNS zonefile](https://github.com/ibm-cloud-architecture/terraform-dns-zonefile) module for manual import, for example.
 
